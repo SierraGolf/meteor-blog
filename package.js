@@ -85,7 +85,6 @@ Package.onUse(function(api) {
   api.addFiles([
     'collections/config.coffee',
     'server/boot.coffee',
-    'server/rss.coffee',
     'server/publications.coffee'
   ], 'server');
 
@@ -132,5 +131,4 @@ Package.onTest(function (api) {
 
   Npm.depends({ rss: '0.0.4' });
 
-  api.addFiles('test/server/rss.coffee', 'server');
 });

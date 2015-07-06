@@ -3,7 +3,7 @@
 ##########################################################################/
 @FilesLocal = FileCollection
   resumable: false
-  baseURL: '/fs'
+  baseURL: '/blog/fs'
   http: [
     method: 'get',
     path: '/:id',

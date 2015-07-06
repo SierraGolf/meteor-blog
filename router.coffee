@@ -12,15 +12,6 @@ if Meteor.isClient
     Iron.Router.hooks.dataNotFound.call @
   , only: ['blogShow']
 
-# RSS
-
-Router.route '/rss/posts',
-  name: 'rss'
-  where: 'server'
-  action: ->
-    @response.write Meteor.call 'serveRSS'
-    @response.end()
-
 # BLOG INDEX
 
 Router.route '/blog',
@@ -59,7 +50,7 @@ Router.route '/blog/tag/:tag',
 
 # SHOW BLOG
 
-Router.route '/blog/:slug',
+Router.route '/blog/post/:slug',
   name: 'blogShow'
   template: 'custom'
   onRun: ->
@@ -98,7 +89,7 @@ Router.route '/blog/:slug',
 
 # BLOG ADMIN INDEX
 
-Router.route '/admin/blog',
+Router.route '/blog/admin',
   name: 'blogAdmin'
   template: 'custom'
   onBeforeAction: ->
@@ -110,7 +101,7 @@ Router.route '/admin/blog',
 
     Meteor.call 'isBlogAuthorized', (err, authorized) =>
       if not authorized
-        return @redirect('/blog')
+        return @redirect('/blog/admin/login')
 
     @next()
   waitOn: ->
@@ -119,7 +110,7 @@ Router.route '/admin/blog',
 
 # NEW/EDIT BLOG
 
-Router.route '/admin/blog/edit/:id',
+Router.route '/blog/admin/edit/:id',
   name: 'blogAdminEdit'
   template: 'custom'
   onBeforeAction: ->
