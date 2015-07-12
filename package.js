@@ -19,7 +19,7 @@ Package.onUse(function(api) {
     'less',
     'underscore',
     'aslagle:reactive-table@0.5.5',
-    'lovetostrike:shareit@0.4.1',
+    'joshowens:shareit',
     'gfk:notifications@1.0.11'
   ], 'client');
 

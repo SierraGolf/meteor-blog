@@ -32,11 +32,11 @@
       {{{html}}}
     </div>
   </article>
-  <div class="blog-back-link pull-left">
-    <a href="{{pathFor 'blogIndex'}}"><i class="fa fa-caret-left"></i>Back to the Blog</a>
-  </div>
   {{> shareit shareData}}
   {{> disqus this}}
+  <div class="blog-back-link">
+    <a href="{{pathFor 'blogIndex'}}">zur Übersicht</a>
+  </div>
 </template>
 
 <template name="blogShowFeaturedImage">
