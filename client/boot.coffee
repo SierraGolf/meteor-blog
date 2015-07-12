@@ -19,7 +19,7 @@ Blog =
     comments:
       allowAnonymous: false
       useSideComments: false
-      defaultImg: '/packages/blog/public/default-user.png'
+      defaultImg: '/packages/ryw_blog/public/default-user.png'
       userImg: 'avatar'
       disqusShortname: null
 
@@ -67,7 +67,7 @@ Meteor.startup ->
 #
 
 UI.registerHelper "blogFormatDate", (date) ->
-  moment(new Date(date)).format "MMM Do, YYYY"
+  moment(new Date(date)).format "D. MMMM YYYY"
 
 UI.registerHelper "blogFormatTags", (tags) ->
   return if !tags?
@@ -86,7 +86,7 @@ UI.registerHelper "joinTags", (list) ->
 
 UI.registerHelper "blogPager", ->
   if Post.count() is Session.get 'postLimit'
-    return new Spacebars.SafeString '<a class="blog-load-more btn" href="#">Load More</a>'
+    return new Spacebars.SafeString '<a class="blog-load-more btn" href="#">mehr Posts anzeigen</a>'
 
 UI.registerHelper "session", (key) ->
   return Session.get key
