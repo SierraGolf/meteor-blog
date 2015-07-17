@@ -228,7 +228,7 @@ Template.blogAdminEdit.events
       formdata.append('file', the_file)
       $.ajax
         type: "post"
-        url: "/fs/#{id}"
+        url: "/blog/fs/#{id}"
         xhr: ->
           xhr = new XMLHttpRequest()
           xhr.upload.onprogress = (data) ->
@@ -241,7 +241,7 @@ Template.blogAdminEdit.events
         complete: (jqxhr) ->
           if post.id?
             post.update
-              featuredImage: "/fs/#{id}"
+              featuredImage: "/blog/fs/#{id}"
             Notifications.success '', 'Featured image saved!'
 
   'change [name=background-title]': (e, tpl) ->

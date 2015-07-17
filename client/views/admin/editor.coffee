@@ -50,7 +50,7 @@ class @BlogEditor extends MediumEditor
 
               $.ajax
                 type: "post"
-                url: "/fs/#{id}"
+                url: "/blog/fs/#{id}"
                 xhr: ->
                   xhr = new XMLHttpRequest()
                   xhr.upload.onprogress = that.updateProgressBar
@@ -59,7 +59,7 @@ class @BlogEditor extends MediumEditor
                 cache: false
                 contentType: false
                 complete: (jqxhr) ->
-                  that.uploadCompleted { responseText: "/fs/#{id}" }, $placeholder
+                  that.uploadCompleted { responseText: "/blog/fs/#{id}" }, $placeholder
                   return
 
                 processData: false
