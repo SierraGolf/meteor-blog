@@ -15,14 +15,12 @@
   {{#each posts}}
     <article class="post">
       <div class="row">
+        <div class="col-md-12">
         {{#if featuredImage}}
-          <div class="col-md-3">
             <a href="{{pathFor 'blogShow'}}" class="thumbnail">
               <img src="{{featuredImage}}" alt="" class="img-responsive">
             </a>
-          </div>
         {{/if}}
-        <div class="{{#if featuredImage}}col-md-9{{else}}col-md-12{{/if}}">
           <h2>
             <a href="{{pathFor 'blogShow'}}">{{title}}</a>
           </h2>
