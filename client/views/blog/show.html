@@ -1,80 +1,57 @@
 <template name="blogShow">
-  <div id="meteor-blog" class="blog-single">
-    {{#if session "postHasFeaturedImage"}}
-      {{> blogShowFeaturedImage}}
-    {{/if}}
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-11 col-md-8 col-md-offset-2">
-          {{> blogShowBody}}
+    <div id="meteor-blog" class="blog-single">
+        {{#if session "postHasFeaturedImage"}}
+            {{> blogShowFeaturedImage}}
+        {{/if}}
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-11 col-md-8 col-md-offset-2">
+                    {{> blogShowBody}}
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <template name="blogShowBody">
-  <article class="post">
-    {{#unless titleBackground}}
-      <h1 class="mb-title text-center">
-        {{title}}
-      </h1>
-      <div class="post-meta text-center">
-        {{#if isAdmin}}
-           <small><a href="#" id="edit-post">edit</a></small>
-           --
-        {{/if}}
-        von {{authorName}} am {{blogFormatDate publishedAt}} gepostet
-        {{> blogTags }}
-      </div>
-    {{/unless}}
-    <div id="commentable-area" class="the-content">
-      {{{html}}}
+    <article class="post">
+        <div id="commentable-area" class="the-content">
+            {{{html}}}
+        </div>
+    </article>
+    {{> shareit shareData}}
+    {{> disqus this}}
+    <div class="blog-back-link">
+        <a href="{{pathFor 'blogIndex'}}">zur Übersicht</a>
     </div>
-  </article>
-  {{> shareit shareData}}
-  {{> disqus this}}
-  <div class="blog-back-link">
-    <a href="{{pathFor 'blogIndex'}}">zur Übersicht</a>
-  </div>
 </template>
 
 <template name="blogShowFeaturedImage">
-  <div class="row">
-    <div class="mb-featured-image-container">
-      <figure class="{{#if session 'fullWidthFeaturedImage'}}mb-fillWidthImage{{else}}mb-scaleImage{{/if}}">
-        <div class="mg-aspectRatioPlaceholder" style="{{#unless session 'fullWidthFeaturedImage'}}width: {{featuredImageWidth}}px; height: {{featuredImageHeight}}px;{{/unless}}">
-          <!-- <div class="mb-aspect-ratio-fill"></div> -->
-          <img src="{{featuredImage}}" alt="" class="img-responsive center-block">
-          {{#if titleBackground}}
-            <div class="mb-background-title">
-              <div class="container">
-                <div class="row">
-                  <div class="center-block">
-                    <h1 class="text-center">
-                      {{title}}
-                      {{#if isAdmin}}
-                         <small><a href="#" id="edit-post">edit</a></small>
-                      {{/if}}
-                    </h1>
-                    <div class="post-meta text-center">
-                      By {{authorName}} on {{blogFormatDate publishedAt}}
-                      {{> blogTags }}
+    <div class="row">
+        <div id="showHeader">
+            <div id="background" style="background-image: url({{featuredImage}})">
+                <div id="colorOverlay" class="center-vertical-container">
+                    <div class="center-vertical">
+                        <h1 class="text-center">
+                            {{title}}
+                            {{#if isAdmin}}
+                                <small><a href="#" id="edit-post">edit</a></small>
+                            {{/if}}
+                        </h1>
+                        <div class="post-meta text-center">
+                            von {{authorName}} am {{blogFormatDate publishedAt}} gepostet
+                            {{> blogTags }}
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          {{/if}}
         </div>
-      </figure>
     </div>
-  </div>
 </template>
 <template name="disqus">
-  {{#if useDisqus}}
-    <div id="disqus_thread"></div>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-  {{/if}}
+    {{#if useDisqus}}
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    {{/if}}
 </template>
