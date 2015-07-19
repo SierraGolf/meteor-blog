@@ -1,8 +1,6 @@
 <template name="blogShow">
     <div id="meteor-blog" class="blog-single">
-        {{#if session "postHasFeaturedImage"}}
-            {{> blogShowFeaturedImage}}
-        {{/if}}
+        {{> blogShowFeaturedImage}}
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-11 col-md-8 col-md-offset-2">
@@ -27,21 +25,19 @@
 </template>
 
 <template name="blogShowFeaturedImage">
-    <div class="row">
-        <div id="showHeader">
-            <div id="background" style="background-image: url({{featuredImage}})">
-                <div id="colorOverlay" class="center-vertical-container">
-                    <div class="center-vertical">
-                        <h1 class="text-center">
-                            {{title}}
-                            {{#if isAdmin}}
-                                <small><a href="#" id="edit-post">edit</a></small>
-                            {{/if}}
-                        </h1>
-                        <div class="post-meta text-center">
-                            von {{authorName}} am {{blogFormatDate publishedAt}} gepostet
-                            {{> blogTags }}
-                        </div>
+    <div id="showHeader">
+        <div id="background" style="background-image: url({{featuredImage}})">
+            <div id="colorOverlay" class="center-vertical-container">
+                <div class="center-vertical">
+                    <h1 class="text-center">
+                        {{title}}
+                        {{#if isAdmin}}
+                            <small><a href="#" id="edit-post">edit</a></small>
+                        {{/if}}
+                    </h1>
+                    <div class="post-meta text-center">
+                        von {{authorName}} am {{blogFormatDate publishedAt}} gepostet
+                        {{> blogTags }}
                     </div>
                 </div>
             </div>
