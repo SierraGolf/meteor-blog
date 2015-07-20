@@ -35,10 +35,7 @@ class @Post extends Minimongoid
     @body
 
   thumbnail: ->
-    regex = new RegExp /img src=[\'"]([^\'"]+)/ig
-
-    while match = regex.exec @body
-      return match[1]
+    @featuredImage
 
   @excerpt: (html) ->
     if Blog.settings.excerptFunction?
