@@ -135,7 +135,6 @@ Template.blogShowBody.helpers
       title: post.title,
       excerpt: post.excerpt,
       description: post.description,
-      author: post.authorName(),
       thumbnail: post.thumbnail()
     }
 
