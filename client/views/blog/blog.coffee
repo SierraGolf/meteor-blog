@@ -137,7 +137,7 @@ Template.blogShowBody.helpers
       description: post.description,
       author: 'datepack',
       thumbnail: post.thumbnail(),
-      url: 'http://www.datepack.de/blog'
+      url: 'http://www.datepack.de/blog/post/' + Session.get('slug')
     }
 
 

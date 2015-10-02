@@ -2,7 +2,7 @@
     <div id="meteor-blog" class="blog-single">
         {{> blogShowFeaturedImage}}
         <div class="container">
-            <div class="row">
+            <div class="row full-width">
                 <div class="col-xs-12 col-sm-11 col-md-8 col-md-offset-2">
                     {{> blogShowBody}}
                 </div>
@@ -19,7 +19,7 @@
     </article>
     {{> shareit shareData}}
     {{> disqus this}}
-    <div class="row text-center">
+    <div class="row full-width text-center">
         <a href="{{pathFor 'blogIndex'}}" class="blog-back-link btn">zur Übersicht</a>
     </div>
 </template>
