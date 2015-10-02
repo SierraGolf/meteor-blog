@@ -2,7 +2,7 @@
   {{> notifications}}
   <div id="blog-admin">
     <div class="container blog-admin-edit">
-      <div class="row">
+      <div class="row full-width">
         <div class="col-md-8 col-md-offset-2">
           <h1>
             <strong>Edit Post</strong>
@@ -10,7 +10,7 @@
 
           {{#with post}}
             <form>
-              <div class="row form-group">
+              <div class="row full-width form-group">
                 <div class="col-md-9">
                   <label>Title</label>
                   <input tabindex="1" type="text" class="form-control" name="title" placeholder="Title" value="{{title}}">
@@ -34,7 +34,7 @@
                   </p>
                 </div>
               </div>
-              <div class="row form-group">
+              <div class="row full-width form-group">
                 <div class="col-md-4">
                   <label>Tags</label>
                   <input tabindex="2" type="text" class="form-control" name="tags" placeholder="Type in a tag & hit enter" value="{{joinTags tags}}" data-role="tagsinput">
@@ -48,7 +48,7 @@
                   <input type="text" class="form-control" name="description" placeholder="Meta Description" value="{{description}}">
                 </div>
               </div>
-              <div class="row form-group">
+              <div class="row full-width form-group">
                 <div class="col-md-12">
                   <label>Body</label>
                   <div class="edit-mode">
