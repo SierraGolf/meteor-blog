@@ -135,6 +135,7 @@ Template.blogShowBody.helpers
       title: post.title,
       excerpt: post.excerpt,
       description: post.description,
+      author: 'datepack',
       thumbnail: post.thumbnail()
     }
 
