@@ -136,7 +136,8 @@ Template.blogShowBody.helpers
       excerpt: post.excerpt,
       description: post.description,
       author: 'datepack',
-      thumbnail: post.thumbnail()
+      thumbnail: post.thumbnail(),
+      url: 'http://www.datepack.de/blog'
     }
 
 
