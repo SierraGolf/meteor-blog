@@ -136,8 +136,8 @@ Template.blogShowBody.helpers
       excerpt: post.excerpt,
       description: post.description,
       author: 'datepack',
-      thumbnail: post.thumbnail(),
-      url: 'http://www.datepack.de/blog/post/' + Session.get('slug')
+      thumbnail: post.featuredImageFullPath(),
+      url: Meteor.settings.public.host + Meteor.settings.public.contextPath + '/post/' + Session.get('slug')
     }
 
 

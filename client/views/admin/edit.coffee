@@ -228,7 +228,7 @@ Template.blogAdminEdit.events
       formdata.append('file', the_file)
       $.ajax
         type: "post"
-        url: "/blog/fs/#{id}"
+        url: Meteor.settings.public.contextPath + "/fs/#{id}"
         xhr: ->
           xhr = new XMLHttpRequest()
           xhr.upload.onprogress = (data) ->
@@ -241,7 +241,7 @@ Template.blogAdminEdit.events
         complete: (jqxhr) ->
           if post.id?
             post.update
-              featuredImage: "/blog/fs/#{id}"
+              featuredImage: Meteor.settings.public.contextPath + "/fs/#{id}"
             Notifications.success '', 'Featured image saved!'
 
   'change [name=background-title]': (e, tpl) ->

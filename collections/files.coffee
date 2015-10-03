@@ -3,7 +3,7 @@
 ##########################################################################/
 @FilesLocal = FileCollection
   resumable: false
-  baseURL: '/blog/fs'
+  baseURL: Meteor.settings.public.contextPath + '/fs'
   http: [
     method: 'get',
     path: '/:id',

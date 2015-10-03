@@ -34,8 +34,8 @@ class @Post extends Minimongoid
   html: ->
     @body
 
-  thumbnail: ->
-    @featuredImage
+  featuredImageFullPath: ->
+    Meteor.settings.public.host + @featuredImage
 
   @excerpt: (html) ->
     if Blog.settings.excerptFunction?

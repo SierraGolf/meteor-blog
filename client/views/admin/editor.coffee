@@ -50,7 +50,7 @@ class @BlogEditor extends MediumEditor
 
               $.ajax
                 type: "post"
-                url: "/blog/fs/#{id}"
+                url: "#{Meteor.settings.public.contextPath}/fs/#{id}"
                 xhr: ->
                   xhr = new XMLHttpRequest()
                   xhr.upload.onprogress = that.updateProgressBar
@@ -59,7 +59,7 @@ class @BlogEditor extends MediumEditor
                 cache: false
                 contentType: false
                 complete: (jqxhr) ->
-                  that.uploadCompleted { responseText: "/blog/fs/#{id}" }, $placeholder
+                  that.uploadCompleted { responseText: "#{Meteor.settings.public.contextPath}/fs/#{id}" }, $placeholder
                   return
 
                 processData: false
