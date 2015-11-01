@@ -31,6 +31,7 @@ Router.route '/blog',
   data: ->
     posts: Post.where {},
       sort: publishedAt: -1
+      limit: Session.get('postLimit')
 
 # BLOG TAG
 

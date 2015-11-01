@@ -21,7 +21,7 @@ Meteor.publish 'posts', (limit) ->
   Post.find { published: true },
     fields: body: 0
     sort: publishedAt: -1
-    limit: limit
+    limit: limit + 1
 
 Meteor.publish 'taggedPosts', (tag) ->
   check tag, String

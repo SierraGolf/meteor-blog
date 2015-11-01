@@ -85,7 +85,7 @@ UI.registerHelper "joinTags", (list) ->
     list.join ', '
 
 UI.registerHelper "blogPager", ->
-  if Post.count() is Session.get 'postLimit'
+  if Post.count() > Session.get 'postLimit'
     return new Spacebars.SafeString '<a class="blog-load-more btn" href="#">mehr Posts anzeigen</a>'
 
 UI.registerHelper "session", (key) ->
