@@ -211,7 +211,7 @@ Template.blogAdminEdit.events
     if Meteor.settings?.public?.blog?.useS3
       S3Files.insert the_file, (err, fileObj) ->
         Tracker.autorun (c) ->
-          theFile = S3Files.find({_id: fileObj._id}).fetch()[0]
+          theFile = S3Files.findOne({_id: fileObj._id})
           if theFile.isUploaded() and theFile.url?()
             if post.id?
               post.update

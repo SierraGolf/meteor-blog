@@ -16,7 +16,11 @@
       _id: new Meteor.Collection.ObjectID(params.id)
   ]
 
+if Meteor.isClient
+  Meteor.subscribe 'fs.files'
+else
 if Meteor.isServer
+  Meteor.publish 'fs.files', () -> FilesLocal.find()
   FilesLocal.allow
     insert: (userId, file) ->
       !!userId
